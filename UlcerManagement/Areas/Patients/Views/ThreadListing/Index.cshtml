@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
+    <script src="~/Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+    .card-body {
+        min-height: 300px;
+        min-width: 300px;
+        margin-right: 5px;
+    }
+    .file {
+        visibility: hidden;
+        position: absolute;
+    }
+    .smallbox {
+        cursor: pointer;
+    }
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<div class="container-fluid">
+    <div class="d-flex flex-row flex-nowrap overflow-auto" style="padding-bottom: 1rem">
+    @for (int i = 0; i < 10; i++)
+    {
+        <a class="nav-link" href="@Url.Action("Index", null, new { area = string.Empty, controller = "Patients/ThreadDetail" }, Request.Url.Scheme)">
+            <div class="border ml-2">
+                <div class="card-header">Last updated Sep 09 2021</div>
+                <div class="card-body text-dark" style="padding: 5px">
+                    <img class="card-img-top" src="~/Assets/img/Image1.jpg" alt="Card image cap">
+                </div>
+            </div>
+        </a>
+                    
+                
+    }
+
+
+    </div>
+    <hr />
+
+    <div class="card h-100">
+        <div class="card-body">
+            <div class="row gutters">
+
+                <div class="col-xl col-lg col-md col-sm col-12">
+                    <div class="form-group">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Upload Image section</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-2 col-md-2 mb-4 border-right">
+                                        <img src="~/Assets/img/ImagePlaceHolder.jpg" id="preview" class="img-thumbnail" width="100%" height="100%">
+                                    </div>
+                                    <div class="col-xl-10 col-md-10 mb-4">
+                                        <div id="msg"></div>
+                                        <form method="post" id="image-form">
+                                            <input type="file" name="img[]" class="file" accept="image/*">
+                                            <div class="input-group my-3">
+                                                <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
+                                                <div class="input-group-append">
+                                                    <button type="button" class="browse btn btn-primary">Browse...</button>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                            <div class="row gutters">
+                                                <br>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="Street">Wound location</label>
+                                                        <input class="form-control" id="Street" placeholder="Enter location">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="ciTy">Wound discharge</label>
+                                                        <input class="form-control" id="ciTy" placeholder="Enter discharge">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="Street">Periwound condition</label>
+                                                        <input class="form-control" id="Street" placeholder="Enter Periwound condition">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="Street">Odor</label>
+                                                        <input class="form-control" id="Street" placeholder="Enter Odor">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row gutters">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="form-group">
+                                                        <label for="ciTy">Comment or question</label>
+                                                        <textarea class="form-control"></textarea>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row gutters">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="text-right">
+                                                        <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+                                                        <button type="button" id="submit" name="submit" class="btn btn-primary">Upload</button>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+<script>
+    $(document).on("click", ".browse", function () {
+        var file = $(this).parents().find(".file");
+        file.trigger("click");
+    });
+    $('input[type="file"]').change(function (e) {
+        var fileName = e.target.files[0].name;
+        $("#file").val(fileName);
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            // get loaded data and render thumbnail.
+            document.getElementById("preview").src = e.target.result;
+        };
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+    });
+</script>
+

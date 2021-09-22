@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+
+    .smallbox {
+        cursor: pointer;
+    }
+
+    .date {
+        font-size: 11px
+    }
+
+    .comment-text {
+        font-size: 12px
+    }
+
+    .fs-12 {
+        font-size: 12px
+    }
+
+    .shadow-none {
+        box-shadow: none
+    }
+
+    .name {
+        color: #007bff
+    }
+
+    .cursor:hover {
+        color: blue
+    }
+
+    .cursor {
+        cursor: pointer
+    }
+
+    .textarea {
+        resize: none
+    }
+</style>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm"><h2 class="m-0 font-weight-bold text-primary">Image Details</h2></div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xl-4 col-md-4 mb-4 border-right">
+
+
+            <div class="card smallbox" style="width: 100%;" data-toggle="modal" data-target=".bd-example-modal-xl">
+                <img src="~/Assets/img/Image1.jpg" id="preview" width="100%" height="100%">
+                <div class="card-body ">
+
+                    <span class="card-text float-right">Uploaded date: Sep 10 2021.</span>
+                    <br />
+                    <hr />
+                    <h4>Wound Details</h4>
+                    <hr />
+                    <div class="row">
+                        <div class="col-6 col-sm-6">Wound location:</div>
+                        <div class="col-6 col-sm-6">
+                            <span class="float-md-right">right on md</span>
+                        </div>
+
+                        <!-- Force next columns to break to new line at md breakpoint and up -->
+                        <div class="w-100 d-none d-md-block"></div>
+
+                        <div class="col-6 col-sm-6">Wound discharge:</div>
+                        <div class="col-6 col-sm-6">
+                            <span class="float-md-right">right on md</span>
+                        </div>
+                        <div class="col-6 col-sm-6">Periwound:</div>
+                        <div class="col-6 col-sm-6">
+                            <span class="float-md-right">right on md</span>
+                        </div>
+                        <div class="col-6 col-sm-6">Odor:</div>
+                        <div class="col-6 col-sm-6">
+                            <span class="float-md-right">right on md</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8 col-md-8 mb-8">
+            <div class="d-flex justify-content-center row">
+                <div class="col-11">
+                    <div class="d-flex flex-column comment-section">
+                        <div class="card mb-1 py-1 border-left-success">
+                            <div class="card-body">
+                                <div class="d-flex flex-row user-info">
+                                    <img class="rounded-circle" src="~/Assets/img/dr.-ian-smith.jpg" width="40">
+                                    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Dr. Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                                </div>
+                                <div class="mt-1">
+                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-1 py-1 border-left-secondary">
+                            <div class="card-body">
+                                <div class="d-flex flex-row user-info">
+                                    <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                                </div>
+                                <div class="mt-1">
+                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-light p-2">
+                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                            <div class="mt-2 text-right">
+                                @*<button class="btn btn-info btn-sm shadow-none" type="button">Upload Image</button>*@
+                                <button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button>
+                                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Uploaded date: Sep 10 2021.</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <img src="~/Assets/img/Image1.jpg" id="preview" width="100%" height="100%">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+﻿@using Models.Framework
+@model List<PATIENT_SUPERVISED_SHOW_CARD>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}@using UlcerManagement.Code
+@using UlcerManagement.Common
+<style>
+    .smallbox {
+        cursor: pointer;
+    }
+</style>
+@{
+    UserSession session = new UserSession();
+    session = (UserSession)System.Web.HttpContext.Current.Session["loginSession"];
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm"><h2 class="m-0 font-weight-bold text-primary">Patients Management</h2></div>
+        <div class="col-sm">
+
+            <a class="float-right btn btn-primary" href="@Url.Action("Index", "AccountManipulation", new {area = "", addedType = CommonConstants.PATIENT_GROUP, adddedBy = session.userID })">
+                Add new patient
+            </a>
+        </div>
+    </div>
+    <hr />
+
+
+
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            var color = "bg-gradient-danger";
+            var status = "Pending Requests";
+            var icon = "fa-bell";
+            if (!item.ALARM)
+            {
+                color = "bg-gradient-success";
+                status = "Answered";
+                icon = "fa-hand-holding-heart";
+            }
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-6 col-md-6 mb-4">
+                @*<div onclick="location.href='ImageListManagement/Index';" class="smallbox">*@
+                <a class="smallbox card" href="@Url.Action("Index", "ImageListManagement", new {area = "Doctor", username = @item.USERNAME})">
+                    <div class="card @color text-white shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-9 mb-1">
+                                    <h4>@item.USERNAME</h4>
+                                    <div class="text-white-50 small">@status</div>
+                                </div>
+                                <div class="col-2 ">
+                                    <i class="float-right fas @icon fa-2x"></i>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </a>
+                @*</div>*@
+            </div>
+        }
+    </div>
+</div>
+
+
